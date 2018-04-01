@@ -5,6 +5,8 @@ var cities = [""];
 
 
 $("#add-city").on("click", function (){
+    $("map").html("");
+    $("weather-view").html("");
     event.preventDefault();
 var input = $("#city-input").val();
 console.log(input);
@@ -30,13 +32,12 @@ $("#weather-view").append(weatherClouds);
 })
 
 
-
-
-
 var mapsEmbed = $("<iframe>");
 mapsEmbed.attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyCF_5x7AkAOH8T7ijrquPSF5Lo3dullSiA&q=" + input);
 mapsEmbed.attr("frameborder", "0");
 mapsEmbed.attr("style", "border:0");
+mapsEmbed.attr("width", "650");
+mapsEmbed.attr("height", "400");
 
 $("#map").prepend(mapsEmbed);
 })
