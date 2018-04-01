@@ -12,7 +12,7 @@ console.log(cities);
 cities.push(input);
 
 
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + input
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + input
  + "&units=imperial&APPID=1faeb28f5befbdab79657bc5ee510ef3";
 
 $.ajax ({
