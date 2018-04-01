@@ -5,8 +5,8 @@ var cities = [""];
 
 
 $("#add-city").on("click", function (){
-    $("map").html("");
-    $("weather-view").html("");
+    // $("#map").reset();
+    // $("#weather-view").reset();
     event.preventDefault();
 var input = $("#city-input").val();
 console.log(input);
@@ -23,12 +23,15 @@ $.ajax ({
 })
 .then(function(response){
 var cityName = $("<h1>").text(response.name);
-$("#weather-view").prepend(cityName);
+$("#city-name").html(cityName);
 var weatherMain = $("<p>").text(response.main.temp + " Degrees Farenheight");
-$("#weather-view").append(weatherMain);
+$("#degrees").html(weatherMain);
 var weatherClouds = $("<p>").text(response.clouds.all + "% Cloud Coverage");
-$("#weather-view").append(weatherClouds);
-
+$("#clouds").html(weatherClouds);
+var latitude = $("<p>").text("Latitude: " + response.coord.lat);
+$("#latitude").html(latitude);
+var longitude = $("<p>").text("Longitude: " + response.coord.lon);
+$("#longitude").html(longitude);
 })
 
 
@@ -39,7 +42,7 @@ mapsEmbed.attr("style", "border:0");
 mapsEmbed.attr("width", "650");
 mapsEmbed.attr("height", "400");
 
-$("#map").prepend(mapsEmbed);
+$("#map").html(mapsEmbed);
 })
 
 
